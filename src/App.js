@@ -6,6 +6,7 @@ import { Contact } from "./Contact";
 import { Service } from "./Service";
 import { AddUser } from "./CRUD/AddUser";
 import {EditUser} from "./CRUD/EditUser";
+import { ViewUser } from "./CRUD/ViewUser";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 //  import "../node_modules/bootstrap/dist/js/bootstrap.bundle.js";
   import { Navbar } from "./Navbar";
@@ -23,7 +24,8 @@ export const App = () => {
       <Route exact path ="/service" component={Service}/>
       <Route exact path ="/contact" component={Contact}/>
       <Route exact path ="/crud/adduser" component={AddUser}/>
-      <Route exact path ="/crud/edituser" component={EditUser}/>
+      <Route exact path ="/crud/edituser/:id" component={EditUser}/>
+      <Route exact path ="/crud/viewuser/:id" component={ViewUser} />
             
       <Redirect to="/" />
     </Switch>

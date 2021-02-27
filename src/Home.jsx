@@ -11,9 +11,10 @@ export const Home = () => {
    useEffect(()=>{
     loadUsers();
   },[]);
+  
   const loadUsers  = async ()=>{
     const result = await axios.get("http://localhost:3002/users");
-    console.log(result);
+    
     setUser(result.data);  
   } 
   return (
@@ -48,11 +49,10 @@ export const Home = () => {
            <td>{user.username}</td>
            <td>{user.email}</td>
            <td>
-            <Link className="btn btn-primary">View</Link>
-            <Link className="btn btn-outline-primary" to="/crud/edituser" >Edit</Link>
+            <Link className="btn btn-primary" to= {`/crud/viewuser/${user.id}`}>View</Link>
+            <Link className="btn btn-outline-primary"  to={`/crud/edituser/${user.id}`} >Edit</Link>
             <Link className="btn btn-danger">Delete</Link>
            </td>
-
 
            </tr>
         ))
